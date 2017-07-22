@@ -76,7 +76,7 @@ public class AnnotatedBeanDefinitionReader {
 	 * @param registry the {@code BeanFactory} to load bean definitions into,
 	 * in the form of a {@code BeanDefinitionRegistry}
 	 * @param environment the {@code Environment} to use when evaluating bean definition
-	 * profiles.
+	 * profiles.BeanDefinitionRegistry bean定义注册中心
 	 * @since 3.1
 	 */
 	public AnnotatedBeanDefinitionReader(BeanDefinitionRegistry registry, Environment environment) {

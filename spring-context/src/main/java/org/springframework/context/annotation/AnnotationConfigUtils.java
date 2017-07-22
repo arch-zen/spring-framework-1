@@ -145,7 +145,7 @@ public class AnnotationConfigUtils {
 	 */
 	public static Set<BeanDefinitionHolder> registerAnnotationConfigProcessors(
 			BeanDefinitionRegistry registry, @Nullable Object source) {
-
+		//获取beanfactory信息,Spring IOC的核心
 		DefaultListableBeanFactory beanFactory = unwrapDefaultListableBeanFactory(registry);
 		if (beanFactory != null) {
 			if (!(beanFactory.getDependencyComparator() instanceof AnnotationAwareOrderComparator)) {
@@ -226,6 +226,7 @@ public class AnnotationConfigUtils {
 			return (DefaultListableBeanFactory) registry;
 		}
 		else if (registry instanceof GenericApplicationContext) {
+			//此处 GenericApplicationContext构造函数初始化beanFactory为DefaultListableBeanFactory
 			return ((GenericApplicationContext) registry).getDefaultListableBeanFactory();
 		}
 		else {

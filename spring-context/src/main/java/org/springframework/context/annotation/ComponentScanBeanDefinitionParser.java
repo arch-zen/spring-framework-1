@@ -47,7 +47,7 @@ import org.springframework.util.StringUtils;
 
 /**
  * Parser for the {@code <context:component-scan/>} element.
- *
+ *	Spirng扫描类
  * @author Mark Fisher
  * @author Ramnivas Laddad
  * @author Juergen Hoeller
