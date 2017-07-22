@@ -96,6 +96,7 @@ public abstract class FactoryBeanRegistrySupport extends DefaultSingletonBeanReg
 	 */
 	@Nullable
 	protected Object getObjectFromFactoryBean(FactoryBean<?> factory, String beanName, boolean shouldPostProcess) {
+		//如果是单例模式
 		if (factory.isSingleton() && containsSingleton(beanName)) {
 			synchronized (getSingletonMutex()) {
 				Object object = this.factoryBeanObjectCache.get(beanName);
@@ -124,6 +125,7 @@ public abstract class FactoryBeanRegistrySupport extends DefaultSingletonBeanReg
 			}
 		}
 		else {
+			//核心业务处理
 			Object object = doGetObjectFromFactoryBean(factory, beanName);
 			if (object != null && shouldPostProcess) {
 				try {
@@ -151,6 +153,7 @@ public abstract class FactoryBeanRegistrySupport extends DefaultSingletonBeanReg
 
 		Object object;
 		try {
+			//权限验证
 			if (System.getSecurityManager() != null) {
 				AccessControlContext acc = getAccessControlContext();
 				try {
@@ -162,6 +165,7 @@ public abstract class FactoryBeanRegistrySupport extends DefaultSingletonBeanReg
 				}
 			}
 			else {
+				//直接调用getObject()方法
 				object = factory.getObject();
 			}
 		}

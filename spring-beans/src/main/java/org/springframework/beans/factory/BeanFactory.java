@@ -292,7 +292,7 @@ public interface BeanFactory {
 	 * @param name the name of the bean to query
 	 * @param typeToMatch the type to match against (as a {@code Class})
 	 * @return {@code true} if the bean type matches,
-	 * {@code false} if it doesn't match or cannot be determined yet
+	 * {@code false} if it doesn't match or cannot be determined yehttps://git.oschina.net/free/spring-framework-reference.gitt
 	 * @throws NoSuchBeanDefinitionException if there is no bean with the given name
 	 * @since 2.0.1
 	 * @see #getBean

@@ -92,4 +92,7 @@ public class CollectingReaderEventListener implements ReaderEventListener {
 		return Collections.unmodifiableList(this.imports);
 	}
 
+	public static void main(String[] args) {
+		System.out.println("---------");
+	}
 }
