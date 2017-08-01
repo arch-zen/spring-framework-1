@@ -117,6 +117,7 @@ class ComponentScanAnnotationParser {
 			basePackages.addAll(Arrays.asList(tokenized));
 		}
 		for (Class<?> clazz : componentScan.getClassArray("basePackageClasses")) {
+			System.out.println("----------clazz:"+clazz);
 			basePackages.add(ClassUtils.getPackageName(clazz));
 		}
 		if (basePackages.isEmpty()) {
@@ -129,6 +130,7 @@ class ComponentScanAnnotationParser {
 				return declaringClass.equals(className);
 			}
 		});
+		//扫描basePackage
 		return scanner.doScan(StringUtils.toStringArray(basePackages));
 	}
 

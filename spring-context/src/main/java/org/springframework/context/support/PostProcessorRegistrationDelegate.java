@@ -104,6 +104,7 @@ class PostProcessorRegistrationDelegate {
 			}
 			sortPostProcessors(beanFactory, orderedPostProcessors);
 			registryPostProcessors.addAll(orderedPostProcessors);
+			//注册bean，核心
 			invokeBeanDefinitionRegistryPostProcessors(orderedPostProcessors, registry);
 
 			// Finally, invoke all other BeanDefinitionRegistryPostProcessors until no further ones appear.
@@ -268,6 +269,7 @@ class PostProcessorRegistrationDelegate {
 			Collection<? extends BeanDefinitionRegistryPostProcessor> postProcessors, BeanDefinitionRegistry registry) {
 
 		for (BeanDefinitionRegistryPostProcessor postProcessor : postProcessors) {
+			//ConfigurationClassPostProcessor
 			postProcessor.postProcessBeanDefinitionRegistry(registry);
 		}
 	}

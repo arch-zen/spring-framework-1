@@ -146,7 +146,9 @@ public class BeanDefinitionReaderUtils {
 			throws BeanDefinitionStoreException {
 
 		// Register bean definition under primary name.
+		//获取beanName
 		String beanName = definitionHolder.getBeanName();
+		//这个方法将扫描到的bean存放到了一个beanName为key、beanDefinition为value的map中,便于执行DI
 		registry.registerBeanDefinition(beanName, definitionHolder.getBeanDefinition());
 
 		// Register aliases for bean name, if any.
