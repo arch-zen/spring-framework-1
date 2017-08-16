@@ -157,10 +157,12 @@ public class AnnotationConfigUtils {
 		}
 
 		Set<BeanDefinitionHolder> beanDefs = new LinkedHashSet<>(4);
-
+		//此处是beanDefinition的处理
 		if (!registry.containsBeanDefinition(CONFIGURATION_ANNOTATION_PROCESSOR_BEAN_NAME)) {
 			RootBeanDefinition def = new RootBeanDefinition(ConfigurationClassPostProcessor.class);
 			def.setSource(source);
+			//表示注册名称为org.springframework.context.annotation.internalConfigurationAnnotationProcessor，
+			// beanClass 对应为ConfigurationClassPostProcessor的bean
 			beanDefs.add(registerPostProcessor(registry, def, CONFIGURATION_ANNOTATION_PROCESSOR_BEAN_NAME));
 		}
 
@@ -211,7 +213,16 @@ public class AnnotationConfigUtils {
 
 		return beanDefs;
 	}
+	//bean的注册
 
+	/**
+	 * 其中registry.registerBeanDefinition(beanName,definition)调用GenericApplicationContext中的方法
+	 * @param registry
+	 * @param definition
+	 * @param beanName
+	 * @return
+	 * BeanDefinitionRegistry ，该类的作用主要是向注册表中注册 BeanDefinition 实例，完成 注册的过程。
+	 */
 	private static BeanDefinitionHolder registerPostProcessor(
 			BeanDefinitionRegistry registry, RootBeanDefinition definition, String beanName) {
 
